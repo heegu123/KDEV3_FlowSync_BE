@@ -44,10 +44,7 @@ public class ProjectResponse {
         @Schema(description = "프로젝트 시작 일시")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private String startAt;
-        @Schema(description = "프로젝트 예상 종료 일시")
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-        private String deadlineAt;
-        @Schema(description = "프로젝트 종료 일시")
+        @Schema(description = "프로젝트 마감 일시")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private String closeAt;
         @Schema(description = "프로젝트 삭제여부")
@@ -71,7 +68,6 @@ public class ProjectResponse {
                     .regAt(DateTimeUtils.format(project.getRegAt()))
                     .updateAt(DateTimeUtils.format(project.getUpdateAt()))
                     .startAt(DateTimeUtils.format(project.getStartAt()))
-                    .deadlineAt(DateTimeUtils.format(project.getDeadlineAt()))
                     .closeAt(DateTimeUtils.format(project.getCloseAt()))
                     .deletedYn(project.getDeletedYn())
                     .devOwnerId(project.getDevOwner().getId())
@@ -123,10 +119,7 @@ public class ProjectResponse {
         @Schema(description = "프로젝트 시작 일시")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private LocalDateTime startAt;
-        @Schema(description = "프로젝트 예상 종료 일시")
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-        private LocalDateTime deadlineAt;
-        @Schema(description = "프로젝트 종료 일시")
+        @Schema(description = "프로젝트 마감 일시")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private LocalDateTime closeAt;
 
@@ -136,20 +129,19 @@ public class ProjectResponse {
                     .projectName(projectInfo.getProjectName())
                     .description(projectInfo.getDescription())
                     .managementStep(projectInfo.getManagementStep())
-                    .developerOrgName(developerOwnerInfo != null ? developerOwnerInfo.getOwnerOrgName() : null)
-                    .developerOwnerName(developerOwnerInfo != null ? developerOwnerInfo.getOwnerName() : null)
-                    .developerProfileImageUrl(developerOwnerInfo != null ? developerOwnerInfo.getProfileImageUrl() : null)
-                    .developerJobRole(developerOwnerInfo != null ? developerOwnerInfo.getJobRole() : null)
-                    .developerJobTitle(developerOwnerInfo != null ? developerOwnerInfo.getJobTitle() : null)
-                    .developerPhoneNum(developerOwnerInfo != null ? developerOwnerInfo.getPhoneNum() : null)
-                    .customerOrgName(customerOwnerInfo != null ? customerOwnerInfo.getOwnerOrgName() : null)
-                    .customerOwnerName(customerOwnerInfo != null ? customerOwnerInfo.getOwnerName() : null)
-                    .customerProfileImageUrl(customerOwnerInfo != null ? customerOwnerInfo.getProfileImageUrl() : null)
-                    .customerJobRole(customerOwnerInfo != null ? customerOwnerInfo.getJobRole() : null)
-                    .customerJobTitle(customerOwnerInfo != null ? customerOwnerInfo.getJobTitle() : null)
-                    .customerPhoneNum(customerOwnerInfo != null ? customerOwnerInfo.getPhoneNum() : null)
+                    .developerOrgName(developerOwnerInfo.getOwnerOrgName())
+                    .developerOwnerName(developerOwnerInfo.getOwnerName())
+                    .developerProfileImageUrl(developerOwnerInfo.getProfileImageUrl())
+                    .developerJobRole(developerOwnerInfo.getJobRole())
+                    .developerJobTitle(developerOwnerInfo.getJobTitle())
+                    .developerPhoneNum(developerOwnerInfo.getPhoneNum())
+                    .customerOrgName(customerOwnerInfo.getOwnerOrgName())
+                    .customerOwnerName(customerOwnerInfo.getOwnerName())
+                    .customerProfileImageUrl(customerOwnerInfo.getProfileImageUrl())
+                    .customerJobRole(customerOwnerInfo.getJobRole())
+                    .customerJobTitle(customerOwnerInfo.getJobTitle())
+                    .customerPhoneNum(customerOwnerInfo.getPhoneNum())
                     .startAt(projectInfo.getStartAt())
-                    .deadlineAt(projectInfo.getDeadlineAt())
                     .closeAt(projectInfo.getCloseAt())
                     .build();
         }
@@ -180,10 +172,7 @@ public class ProjectResponse {
         @Schema(description = "프로젝트 시작 일시")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private Date startAt;
-        @Schema(description = "프로젝트 예상 종료 일시")
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-        private Date deadlineAt;
-        @Schema(description = "프로젝트 종료 일시")
+        @Schema(description = "프로젝트 마감 일시")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private Date closeAt;
         @Schema(description = "프로젝트 삭제여부")
@@ -197,7 +186,7 @@ public class ProjectResponse {
         @Schema(description = "프로젝트 클릭 가능 여부")
         private Integer clickable;
 
-        public ProjectListDetailDto(long id, String name, String description, String detail, String managementStep, Date regAt, Date updateAt, Date startAt, Date deadlineAt, Date closeAt, String deletedYn, long devOwnerId, String developerName, String customerName, int clickable) {
+        public ProjectListDetailDto(long id, String name, String description, String detail, String managementStep, Date regAt, Date updateAt, Date startAt, Date closeAt, String deletedYn, long devOwnerId, String developerName, String customerName, int clickable) {
             this.id = id;
             this.name = name;
             this.description = description;
@@ -206,7 +195,6 @@ public class ProjectResponse {
             this.regAt = regAt;
             this.updateAt = updateAt;
             this.startAt = startAt;
-            this.deadlineAt = deadlineAt;
             this.closeAt = closeAt;
             this.deletedYn = deletedYn;
             this.devOwnerId = devOwnerId;
@@ -266,10 +254,7 @@ public class ProjectResponse {
         @Schema(description = "프로젝트 시작 일시")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private Date startAt;
-        @Schema(description = "프로젝트 예상 종료 일시")
-        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-        private Date deadlineAt;
-        @Schema(description = "프로젝트 종료 일시")
+        @Schema(description = "프로젝트 마감 일시")
         @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
         private Date closeAt;
         @Schema(description = "개발사 대표자 아이디")
@@ -291,7 +276,6 @@ public class ProjectResponse {
                     .detail(detailsDto.getDetail())
                     .managementStep(Project.ManagementStep.valueOf(detailsDto.getManagementStep()))
                     .startAt(detailsDto.getStartAt())
-                    .deadlineAt(detailsDto.getDeadlineAt())
                     .closeAt(detailsDto.getCloseAt())
                     .devOwnerId(detailsDto.getDevOwnerId())
                     .customerOwnerId(detailsDto.getCustomerOrgId())

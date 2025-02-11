@@ -15,11 +15,10 @@ public class ProjectInfo {
     private Long developerOwnerId;
     private Long customerOwnerId;
     private LocalDateTime startAt;
-    private LocalDateTime deadlineAt;
     private LocalDateTime closeAt;
 
     @QueryProjection
-    public ProjectInfo(Long id, String projectName, String description, Project.ManagementStep managementStep, Long developerOwnerId, Long customerOwnerId, LocalDateTime startAt, LocalDateTime deadlineAt, LocalDateTime closeAt) {
+    public ProjectInfo(Long id, String projectName, String description, Project.ManagementStep managementStep, Long developerOwnerId, Long customerOwnerId, LocalDateTime startAt, LocalDateTime closeAt) {
         this.id = id;
         this.projectName = projectName;
         this.description = description;
@@ -27,7 +26,6 @@ public class ProjectInfo {
         this.developerOwnerId = developerOwnerId;
         this.customerOwnerId = customerOwnerId;
         this.startAt = startAt;
-        this.deadlineAt = deadlineAt;
         this.closeAt = closeAt;
     }
 }

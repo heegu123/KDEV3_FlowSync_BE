@@ -116,7 +116,6 @@ public class ProjectRepositoryImpl implements ProjectRepositoryCustom {
                         project.devOwner.id.as("developerOwnerId"),
                         project.customerOwner.id.as("customerOwnerId"),
                         project.startAt,
-                        project.deadlineAt,
                         project.closeAt))
                 .from(project)
                 .where(project.id.eq(projectId))
